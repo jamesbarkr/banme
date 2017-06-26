@@ -1,5 +1,8 @@
 from django.shortcuts import render
+
 import requests
+
+from . import markovit
 
 # Create your views here.
 
@@ -9,6 +12,10 @@ def main(request):
     url = 'https://www.reddit.com/r/marchagainsttrump/top.json'
     r = requests.get(url)
     print("Status code: ", r.status_code)
+    if r.status_code == 200:
+        print("Code good.")
+    else:
+        print("Bad status.")
 
     # store API response in a var
     response_dict = r.json()
@@ -20,7 +27,11 @@ def main(request):
     for post in response_dict['data']['children']:
         post_titles.append(post['data']['title'])
 
+    # markovit test
+    output = markovit.markovit(post_titles)
+    print(output)
+
     # context is info passed to the template using render
-    context = {'titles': post_titles}
+    context = {'titles': post_titles, 'output': output}
 
     return render(request, 'ban_me/main.html', context)
