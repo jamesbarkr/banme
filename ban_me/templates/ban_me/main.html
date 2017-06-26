@@ -4,8 +4,12 @@
 
 {% block content %}
 
-{% for title in titles %}
-  {{ title }}
-{% endfor %}
+<p>Top posts from: r/marchagainsttrump</p>
+
+<ul>
+  {% for title in titles %}
+    <li>{{ title }}</li>
+  {% endfor %}
+</ul>
 
 {% endblock content %}
