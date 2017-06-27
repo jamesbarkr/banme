@@ -27,9 +27,8 @@ def main(request):
     for post in response_dict['data']['children']:
         post_titles.append(post['data']['title'])
 
-    # markovit test
+    # run the post data through markovit
     output = markovit.markovit(post_titles)
-    print(output)
 
     # context is info passed to the template using render
     context = {'titles': post_titles, 'output': output}

@@ -1,7 +1,7 @@
 """The code for building a Markov chain output"""
 
 # the n part of the ngram
-order = 5
+order = 3
 # a dictionary to keep the ngrams in
 ngrams = {}
 
@@ -40,8 +40,7 @@ def markovit(textlist):
     # a function which iterates through the list of posts
     for text in textlist:
         i = 0
-        print(text)
-        while i < (len(text) - order + 1):
+        while i <= (len(text) - order):
             # sets the current gram equal to a spliced bit of text as
             # as long as the order
             gram = text[i:(i + order)]
@@ -50,11 +49,11 @@ def markovit(textlist):
             if gram not in ngrams.keys():
                 ngrams[gram] = []
             # adds the letter following the gram to the list in the dict
-            # ngrams[gram].append(text[(i + order)]) # <-- out of range?
+            if (i + order) < len(text): # <-- problem here is that for ngrams
+                                        # at the end of the text, nothing follows them
+                                        # (e.g. there is no next letter)
+                ngrams[gram].append(text[i + order])
             i += 1
     return ngrams
 
-# not sure if project should parse text all at once or iterate through
-# each post
-
-print(markovit(text))
+# print(markovit(text))
