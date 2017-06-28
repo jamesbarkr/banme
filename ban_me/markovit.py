@@ -1,3 +1,5 @@
+import random
+
 """The code for building a Markov chain output"""
 
 text = ["Tape Released of Trump Saying He Spies on Naked Girls Back Stage, “Because I'm The Owner of The Pageant”",
@@ -51,11 +53,16 @@ def markovit(textlist):
             ngrams[gram].append(text[i + order])
             i += 1
 
-    currentGram = text[0:order]
+    currentGram = textlist[random.randrange(len(textlist))][0:order] # picks a starting gram
+                                                                     # from a random title
     result = currentGram
 
     j = 0
     while j < 100:
         j += 1
+        possibilities = ngrams[currentGram]
+        nextletter = possibilities[random.randrange(len(possibilities))] # TODO: remove redundancy
+        result += nextletter
+        currentGram = result[(len(result) - order):len(result)]
 
-    return ngrams
+    return result
