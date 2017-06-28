@@ -34,8 +34,8 @@ def markovit(textlist):
     A function which turns an input list (strings) into a Markov'd
     output
     """
-    # the n part of the ngram
-    order = 3
+    # the n part of the ngram (higher the number, the more sense the output makes)
+    order = 6
     # a dictionary to keep the ngrams in
     ngrams = {}
     # a function which iterates through the list of posts
