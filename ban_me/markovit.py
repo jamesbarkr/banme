@@ -40,7 +40,7 @@ def markovit(textlist):
     # a function which iterates through the list of posts
     for text in textlist:
         i = 0
-        while i <= (len(text) - order):
+        while i < ((len(text) - order) - 1): # convoluted code to avoid out-of-range errors
             # sets the current gram equal to a spliced bit of text as
             # as long as the order
             gram = text[i:(i + order)]
@@ -49,11 +49,10 @@ def markovit(textlist):
             if gram not in ngrams.keys():
                 ngrams[gram] = []
             # adds the letter following the gram to the list in the dict
-            if (i + order) < len(text): # <-- problem here is that for ngrams
-                                        # at the end of the text, nothing follows them
-                                        # (e.g. there is no next letter)
-                ngrams[gram].append(text[i + order])
+            ngrams[gram].append(text[i + order])
             i += 1
-    return ngrams
 
-# print(markovit(text))
+    currentGram = text[0:order]
+    result = currentGram
+
+    return ngrams
