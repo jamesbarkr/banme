@@ -9,7 +9,7 @@ from . import markovit
 def main(request):
     """Main page for ban_me"""
     # get data and return a status code (200 = good, 429 = bad)
-    url = 'https://www.reddit.com/r/marchagainsttrump/top.json'
+    url = 'https://www.reddit.com/r/marchagainsttrump/top.json?count=200'
     r = requests.get(url)
     print("Status code: ", r.status_code)
     if r.status_code == 200:

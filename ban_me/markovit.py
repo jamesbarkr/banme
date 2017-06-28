@@ -1,10 +1,5 @@
 """The code for building a Markov chain output"""
 
-# the n part of the ngram
-order = 3
-# a dictionary to keep the ngrams in
-ngrams = {}
-
 text = ["Tape Released of Trump Saying He Spies on Naked Girls Back Stage, “Because I'm The Owner of The Pageant”",
 "TrumpCare",
 "Lady Liberty will end Trump",
@@ -37,6 +32,10 @@ def markovit(textlist):
     A function which turns an input list (strings) into a Markov'd
     output
     """
+    # the n part of the ngram
+    order = 3
+    # a dictionary to keep the ngrams in
+    ngrams = {}
     # a function which iterates through the list of posts
     for text in textlist:
         i = 0
@@ -54,5 +53,9 @@ def markovit(textlist):
 
     currentGram = text[0:order]
     result = currentGram
+
+    j = 0
+    while j < 100:
+        j += 1
 
     return ngrams
