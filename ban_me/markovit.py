@@ -60,9 +60,10 @@ def markovit(textlist):
     j = 0
     while j < 100:
         j += 1
-        possibilities = ngrams[currentGram]
-        nextletter = possibilities[random.randrange(len(possibilities))] # TODO: remove redundancy
-        result += nextletter
-        currentGram = result[(len(result) - order):len(result)]
+        if currentGram in ngrams:
+            possibilities = ngrams[currentGram]
+            nextletter = possibilities[random.randrange(len(possibilities))] # TODO: remove redundancy
+            result += nextletter
+            currentGram = result[(len(result) - order):len(result)]
 
     return result
