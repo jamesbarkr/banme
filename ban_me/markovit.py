@@ -1,11 +1,12 @@
 """The code for building a Markov chain output"""
 
 import random
+import re
 from . import sample
 
 # sampletext = sample.sample() # for offline testing
 
-def markovit(textlist):
+def markovit(textlist): # NOW REDUNDANT
     """
     A function which turns an input list (strings) into a Markov'd
     output
@@ -42,3 +43,23 @@ def markovit(textlist):
             currentGram = result[(len(result) - order):len(result)] # makes a new currentGram from the appended result
 
     return result
+
+def markovit_v2(titlelist):
+    """The word-based version of the markov chain gen above"""
+    return_len = 20
+    word_freq = {}
+    for title in titlelist:
+        words = title.split() # splits string into words
+        for word in words:
+            if word not in word_freq.keys(): # if a list value does not exist in the
+                word_freq[word] = []         # dict yet, create one
+        i = 0
+        while i < len(words): # super janky js-style loop TODO beautify this
+            currentWord = words[i]
+            print(currentWord)
+            if i < (len(words) - 1):
+                nextWord = words[i + 1]
+                word_freq[currentWord].append(nextWord)
+            i += 1
+
+    return word_freq

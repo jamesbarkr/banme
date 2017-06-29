@@ -9,7 +9,7 @@ from . import markovit
 def main(request):
     """Main page for ban_me"""
     # get data and return a status code (200 = good, 429 = bad)
-    url = 'https://www.reddit.com/r/marchagainsttrump/top.json?count=200'
+    url = 'https://www.reddit.com/r/marchagainsttrump/top.json'
     r = requests.get(url)
     print("Status code: ", r.status_code)
     if r.status_code == 200:
@@ -28,7 +28,7 @@ def main(request):
         post_titles.append(post['data']['title'])
 
     # run the post data through markovit
-    output = markovit.markovit(post_titles)
+    output = markovit.markovit_v2(post_titles)
 
     # context is info passed to the template using render
     context = {'titles': post_titles, 'output': output}
