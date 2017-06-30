@@ -28,7 +28,7 @@ def main(request):
         post_titles.append(post['data']['title'])
 
     # run the post data through markovit
-    output = markovit.markovit_v2(post_titles)
+    output = markovit.wordlistgen(post_titles)
 
     # context is info passed to the template using render
     context = {'titles': post_titles, 'output': output}

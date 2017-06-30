@@ -44,9 +44,9 @@ def markovit(textlist): # NOW REDUNDANT
 
     return result
 
-def markovit_v2(titlelist):
-    """The word-based version of the markov chain gen above"""
-    return_len = 20
+def wordlistgen(titlelist):
+    """Generates a a dictionary of words, each with a dictionary of potential following words"""
+    return_len = 3
     word_freq = {}
     for title in titlelist:
         words = title.split() # splits string into words
@@ -62,4 +62,16 @@ def markovit_v2(titlelist):
                 word_freq[currentWord].append(nextWord)
             i += 1
 
-    return word_freq
+    startSource = titlelist[random.randrange(len(titlelist))]
+    currentWord = startSource.split()[0]
+    result = currentWord
+
+    j = 0
+    while j < return_len - 1:
+        j += 1
+        possibilities = word_freq[currentWord]
+        nextWord = possibilities[random.randrange(len(possibilities))]
+        result += ' ' + nextWord
+        currentWord = nextWord
+
+    return result
