@@ -27,7 +27,7 @@ def markovit_v2():
     for post in posts:
         titlelist.append(post.title)
     word_freq = wordlistgen(titlelist) #
-    return_len = 10 # the length of the returned string
+    return_len = 100 # the length of the returned string
 
     startSource = titlelist[random.randrange(len(titlelist))]
     currentWord = startSource.split()[0] # selects a 'first word' from among the posts
