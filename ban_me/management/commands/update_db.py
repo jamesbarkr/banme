@@ -9,5 +9,4 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         print("Getting posts, this may take a while.")
         posts = get()
-        for i in range(5):
-            self.stdout.write(self.style.SUCCESS(posts[0]))
+        self.stdout.write(self.style.SUCCESS("Posts retrieved"))

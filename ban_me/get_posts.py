@@ -1,35 +1,34 @@
 import requests
 from . import markovit
 import time
+import json
 
 def get():
+    # get data and return a status code (200 = good, 429 = bad)
     url = 'https://www.reddit.com/r/marchagainsttrump/top.json'
-    headers = {'User-agent': 'u/eskimopies'}
+    headers = {'User-agent': 'u/eskimopies webapp ban_me, alpha testing using Django, requests'}
     r = requests.get(url, headers)
-    print("Status code: ", r.status_code)
     if r.status_code == 200:
         print("Code good.")
     else:
-        print("Bad status.")
+        print("Too many requests, trying again in 1 minute")
+        while r.status_code != 200:
+            r = requests.get(url, headers)
+            if r.status_code != 200:
+                time.sleep(60)
 
     # store API response in a var
-    response_dict = r.json()
+    response_dict = json.loads(r.text)
+    print(response_dict)
 
     # process results
     post_titles = []
 
-    #attempt to get dict
-    response = {}
-    while bool(response) == False:
-        try:
-            response = response_dict['data']
-        except KeyError:
-            print('error')
-        time.sleep(5)
+    response = response_dict['data']
 
     # turn the json data into a list of strings (titles)
     for post in response['children']:
         post_titles.append(post['data']['title'])
 
     # run the post data through markovit
-    return markovit.markovit_v2(post_titles)
+    output = markovit.markovit_v2(post_titles)
