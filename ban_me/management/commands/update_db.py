@@ -4,7 +4,7 @@ from ban_me import get_posts
 import time
 
 class Command(BaseCommand):
-    help = 'Updates the SQL db with recent posts from Reddit'
+    help = 'Updates the SQL db with recent posts from Reddit, ignoring things already in the db'
 
     def handle(self, *args, **options):
         print("Getting posts, this may take a while.")
