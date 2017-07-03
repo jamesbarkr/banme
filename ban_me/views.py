@@ -10,7 +10,8 @@ def main(request):
     """Main page for ban_me"""
     # get data and return a status code (200 = good, 429 = bad)
     url = 'https://www.reddit.com/r/marchagainsttrump/top.json'
-    r = requests.get(url)
+    headers = {'User-agent': 'u/eskimopies webapp ban_me, alpha testing - requests 2.5.1'}
+    r = requests.get(url, headers)
     print("Status code: ", r.status_code)
     if r.status_code == 200:
         print("Code good.")
