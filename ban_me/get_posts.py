@@ -1,7 +1,7 @@
 import requests
 from . import markovit
 import time
-import json
+import datetime
 
 def get():
     # get data and return a status code (200 = good, 429 = bad)
@@ -11,24 +11,21 @@ def get():
     if r.status_code == 200:
         print("Code good.")
     else:
-        print("Too many requests, trying again in 1 minute")
+        print("Too many requests, attempting to resolve.",
+            "(" + str(datetime.datetime.now().time()) + ")")
         while r.status_code != 200:
             r = requests.get(url, headers)
             if r.status_code != 200:
-                time.sleep(60)
+                time.sleep(1)
 
     # store API response in a var
-    response_dict = json.loads(r.text)
-    print(response_dict)
+    response_dict = r.json()
 
     # process results
     post_titles = []
 
-    response = response_dict['data']
-
     # turn the json data into a list of strings (titles)
-    for post in response['children']:
+    for post in response_dict['data']['children']:
         post_titles.append(post['data']['title'])
 
-    # run the post data through markovit
-    output = markovit.markovit_v2(post_titles)
+    return post_titles
