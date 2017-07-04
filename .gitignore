@@ -1,0 +1,20 @@
+# Ignore the following files
+*.log
+*.pot
+*.pyc
+__pycache__/
+
+# Ignore OS X files
+.DS_Store
+
+# Ignore local settings (if present)
+local_settings.py
+
+# Ignore collected static files
+/static/
+
+# Ignore vagrant files
+.vagrant
+
+# Ignore db.sqlite3
+db.sqlite3
