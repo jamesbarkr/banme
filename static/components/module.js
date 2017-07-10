@@ -1,0 +1,1 @@
+var banMeApp=angular.module('banMeApp',['homeApp','devsApp','ngRoute','ui.bootstrap'])
