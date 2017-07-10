@@ -11,5 +11,8 @@ def main(request):
     # context is info passed to the template using render
     context = {'output': output}
 
+<<<<<<< HEAD
     return render(request, 'views/index.html', context)
-
+=======
+    return render(request, 'ban_me/main.html', context)
+>>>>>>> 9aad4589baa90038a7312766dec3c4d62c63544d

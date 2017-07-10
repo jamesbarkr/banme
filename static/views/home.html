@@ -1,0 +1,30 @@
+		<style>
+		.background{
+			background-image:url("/static/images/donald_background_mobile.png");
+		}
+
+		@media(min-width:400px){
+			.background{
+				background-image:url("/static/images/donald_background_tablet.png");
+			}
+		}
+		@media(min-width:800px){
+			.background{
+				background-image:url("/static/images/donald_background_desktop.png");
+			}
+		}
+		</style>
+        <div class="nav">
+            <h1 class="nav_text noselect inactive">HOME </h1><a href="/#!/devs"><h1 class="nav_text">Developers </h1></a></div>
+	    <div class="home_side">
+	        <h1 class="title">BAN ME</h1>
+	        <p>Need to get autobanned from /r/theDonald? <br/>This is what you should say. </p>
+	        <div id="post_area">
+	            <div id="chat_triangle"></div>
+	            <p id="post_para">
+	            {{post}}
+	            </p>
+	        </div>
+	        <p class="small_text">Note posts do not ensure a ban. User discretion is advised.</p>
+	        <button class="btn btn-primary sharp" type="button">Another One!</button>
+	    </div>

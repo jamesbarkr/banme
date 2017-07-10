@@ -12,4 +12,3 @@ def main(request):
     context = {'output': output}
 
     return render(request, 'views/index.html', context)
-

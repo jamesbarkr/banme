@@ -1,0 +1,11 @@
+angular.
+module('devsApp').
+component('devs',{
+	templateUrl:
+	'/static/views/developers.html',
+	controller:['$scope','$http',function($scope,$http){
+		$scope.styles={};
+		$scope.styles.navStyle='nav_text_dev';
+		$scope.styles.background='dev_background';
+	}]
+});

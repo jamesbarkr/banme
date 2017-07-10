@@ -1,0 +1,315 @@
+/*dev page specific css */
+.centered_block{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+#dev_profiles > *{
+  padding:0 30px;
+}
+
+.nav_text_dev {
+  font-size:20px;
+  float:right;
+  margin: 0 0 20px 0;
+  color:#ffffff;
+  cursor: pointer;
+}
+
+.inactive{
+  cursor:default !important;
+  opacity: 0.8;
+}
+
+.profile_seperater {
+  border-right:2px solid #959894;
+}
+
+#dev_right_profile {
+  float:left;
+}
+
+.dev_bio {
+  font-size:20px;
+  font-weight:400;
+  max-width: 400px;
+  color:#95989A;
+  padding-top:10px;
+}
+
+.subtitle {
+  font-size:20px;
+  font-style:italic;
+  font-weight:400;
+  color:#95989A;
+}
+
+.dev_title {
+  color:#ffb0ab;
+  font-size:30px;
+}
+
+#dev_left_profile *{
+  float:right;
+  clear: right;
+  text-align: right;
+}
+
+.profile_image img {
+  height:200px;
+}
+
+.profile_image {
+  width:200px;
+  height:200px;
+  overflow:hidden;
+}
+
+.dev_background {
+  background-image:url("../images/developers_banme_trumpets.png");
+  background-size:100%;
+  width:100%;
+  background-position:center;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+/*home css*/
+
+.title{
+  padding-top: 30px;
+}
+
+.small_text{
+  font-family: lato;
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  font-style:italic;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+@font-face {
+  font-family:"Segoe UI";
+  src: url(../fonts/SEGOEUIB.TTF);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.nav_text {
+  font-size:20px;
+  float:right;
+  margin: 0 0 20px 0;
+  color:#FFB0AB;
+  cursor: pointer;
+}
+
+.nav {
+  position:relative;
+  left:100%;
+  width:200px;
+  transform:translateX(-100%);
+  padding:70px 100px 0 0;
+}
+
+.btn.btn-primary.sharp {
+  background-color:#ffdcda;
+  color:#95989A;
+  line-height:0px;
+  border:transparent;
+  box-shadow:5px 5px 0px #ffb0ab;
+  font-size:20px;
+  font-family:Segoe UI;
+  padding:20px;
+  text-transform: none;
+  text-shadow: none;
+}
+
+#post_para {
+  font-size:25px;
+  padding:0 25px;
+  font-weight:400;
+}
+
+#chat_triangle {
+  width:0;
+  height:0;
+  border-top:20px white solid;
+  border-left:20px transparent solid;
+  position:relative;
+  left:-20px;
+  border-right:20px transparent solid;
+}
+
+#post_area {
+  width:75%;
+  min-height:200px;
+  background-color:white;
+  border-radius:20px;
+  margin-top:60px;
+  margin-bottom:10px;
+}
+
+p {
+  font-family:lato;
+  font-size:25px;
+  font-weight:300;
+}
+
+h1 {
+  font-family:Segoe UI;
+  font-size:70px;
+  font-weight:bold;
+  color:#95989A;
+}
+
+.home_side {
+  width:600px;
+  position:absolute;
+  top:50%;
+  left:15%;
+  padding:20px;
+  transform:translateY(-50%);
+  resize:vertical;
+  overflow:auto;
+  color:#95989A;
+}
+
+.home_background {
+  background-image:url("../images/donald_background_trumpets.png");
+  background-size:100%;
+  width:100%;
+  background-position:center;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+
+.background{
+  background-size:100%;
+  width:100%;
+  background-position:center;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
+  color:#959894;
+  background-color:#e3e3e3;
+  border-color:#e3e3e3;
+}
+
+@media (max-width:990px){
+  #dev_left_profile{
+    margin-top:300px;
+  }
+  #dev_left_profile *{
+    float:none;
+    clear:none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #dev_right_profile *{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #dev_right_profile{
+    float:none;
+    margin:50px 0;
+  }
+
+  .profile_seperater {
+    border-right: none;
+  }
+
+}
+@media (max-width:760px){
+  .dev_bio {
+    width: 400px;
+  }
+
+  #dev_left_profile{
+    margin-top:500px;
+  }
+
+  @media (max-width:550px){
+    /*home page css*/
+    .home_side{
+      left:10px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .nav{
+      padding: 20px 20px 0 0;
+    }
+
+    p{
+      font-size: 20px;
+    }
+
+    .nav_text{
+      margin: 0 0 10px 0;
+    }
+
+    h1{
+      font-size: 50px;
+    }
+
+    /* dev page css*/
+    .nav_text_dev{
+      margin: 0 0 10px 0;
+    }
+
+  }
+
+
+  @media (max-width:400px){
+    /*home page css*/
+    .home_side{
+      left:10px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .nav{
+      padding: 20px 20px 0 0;
+    }
+
+    p{
+      font-size: 20px;
+    }
+
+    .nav_text{
+      margin: 0 0 10px 0;
+    }
+
+    h1{
+      font-size: 50px;
+    }
+
+    /* dev page css*/
+    .nav_text_dev{
+      margin: 0 0 10px 0;
+    }
+
+    .dev_bio {
+      width: 300px;
+    }
+
+  }
