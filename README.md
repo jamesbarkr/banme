@@ -1,2 +1,2 @@
 # banme
-A quick way to get (proudly) banned from r/The_Donald
+NOTICE: This project is being redesigned in JS, with a similar technical infrastructure and different implementation.
